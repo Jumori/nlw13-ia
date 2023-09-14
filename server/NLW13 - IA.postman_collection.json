@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "1a6f2fd5-ee53-4ca9-a549-0e0dd986fdea",
+		"name": "NLW13 - IA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11108501"
+	},
+	"item": [
+		{
+			"name": "List Prompts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/prompt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"prompt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Videos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "video",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3333/videos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transcription",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prompt\": \"prisma\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/videos/94b52427-0811-49ab-ae23-6977e6bbe80c/transcription",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"videos",
+						"94b52427-0811-49ab-ae23-6977e6bbe80c",
+						"transcription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate AI Completion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"videoId\": \"94b52427-0811-49ab-ae23-6977e6bbe80c\",\n    \"temperature\": 0.5,\n    \"prompt\": \"Gere um resumo sucinto da transcrição do vídeo informado a seguir: ```{transcription}```\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/ai/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"ai",
+						"complete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
